@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"> -->
+    <title>Dental Hospital Contact</title>
+</head>
+<body class="bg-gray-500">
+
+    <div class="container mx-auto p-8">
+        <h1 class="text-3xl font-semibold mb-4">Contact Us</h1>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+                <h2 class="text-xl font-semibold mb-2">Contact Information</h2>
+                <p class="mb-2">123 Dental Street</p>
+                <p class="mb-2">Cityville, State</p>
+                <p class="mb-2">Zip Code: 12345</p>
+                <p class="mb-2">Phone: (555) 123-4567</p>
+                <p class="mb-2">Email: info@dentalhospital.com</p>
+            </div>
+
+            <div>
+                <h2 class="text-xl font-semibold mb-2">Contact Form</h2>
+                <form id="contactForm" class="space-y-4">
+                    <div>
+                        <label for="name" class="block text-sm font-medium text-gray-700">Your Name</label>
+                        <input type="text" id="name" name="name" class="mt-1 p-2 w-full border rounded-md">
+                        <p id="nameError" class="text-red-500 hidden">Please enter your name.</p>
+                    </div>
+
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-gray-700">Your Email</label>
+                        <input type="email" id="email" name="email" class="mt-1 p-2 w-full border rounded-md">
+                        <p id="emailError" class="text-red-500 hidden">Please enter a valid email address.</p>
+                    </div>
+
+                    <div>
+                        <label for="message" class="block text-sm font-medium text-gray-700">Message</label>
+                        <textarea id="message" name="message" rows="4" class="mt-1 p-2 w-full border rounded-md"></textarea>
+                        <p id="messageError" class="text-red-500 hidden">Please enter a message.</p>
+                    </div>
+
+                    <button type="button" onclick="submitForm()" class="bg-blue-500 text-white p-2 rounded-md">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function submitForm() {
+            // Simple client-side validation
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const message = document.getElementById('message').value.trim();
+
+            // Reset error messages
+            document.getElementById('nameError').classList.add('hidden');
+            document.getElementById('emailError').classList.add('hidden');
+            document.getElementById('messageError').classList.add('hidden');
+
+            // Check for empty fields
+            if (!name) {
+                document.getElementById('nameError').classList.remove('hidden');
+                return;
+            }
+
+            if (!email) {
+                document.getElementById('emailError').classList.remove('hidden');
+                return;
+            }
+
+            if (!message) {
+                document.getElementById('messageError').classList.remove('hidden');
+                return;
+            }
+
+            // If all fields are filled, you can proceed with form submission
+            // You may want to use AJAX to send the form data to your server here
+
+            alert('Form submitted successfully!');
+            document.getElementById('contactForm').reset();
+        }
+    </script>
+
+</body>
+</html>
